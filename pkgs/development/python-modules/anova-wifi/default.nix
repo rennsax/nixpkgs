@@ -2,12 +2,14 @@
   lib,
   buildPythonPackage,
   fetchFromGitHub,
+  fetchpatch2,
   pythonOlder,
   poetry-core,
   aiohttp,
   sensor-state-data,
   pytestCheckHook,
   pytest-asyncio,
+  pytest-cov-stub,
 }:
 
 buildPythonPackage rec {
@@ -24,10 +26,14 @@ buildPythonPackage rec {
     hash = "sha256-F/bd5BtHpF3778eoK0QBaSmdTOpLlz+fixCYR74BRZw=";
   };
 
-  postPatch = ''
-    substituteInPlace pyproject.toml \
-      --replace-fail "--cov=anova_wifi --cov-report=term-missing:skip-covered" ""
-  '';
+  patches = [
+    (fetchpatch2 {
+      # https://github.com/Lash-L/anova_wifi/pull/60
+      name = "aiohttp-3.10-compat.patch";
+      url = "https://github.com/Lash-L/anova_wifi/commit/0d7cbc756fb07241aebb99d5dd2b7d5cfd10581d.patch";
+      hash = "sha256-pfj5vKvI+aTkRV2UZT3E/Dgv0FetSUfDYhTKAq1p6uc=";
+    })
+  ];
 
   build-system = [ poetry-core ];
 
@@ -39,6 +45,7 @@ buildPythonPackage rec {
   nativeCheckInputs = [
     pytestCheckHook
     pytest-asyncio
+    pytest-cov-stub
   ];
 
   disabledTests = [
