@@ -2,7 +2,6 @@
   lib,
   buildPythonPackage,
   fetchFromGitHub,
-  fetchpatch2,
   pythonOlder,
   poetry-core,
   aiohttp,
@@ -14,7 +13,7 @@
 
 buildPythonPackage rec {
   pname = "anova-wifi";
-  version = "0.17.0";
+  version = "0.17.1";
   pyproject = true;
 
   disabled = pythonOlder "3.10";
@@ -23,17 +22,8 @@ buildPythonPackage rec {
     owner = "Lash-L";
     repo = "anova_wifi";
     rev = "refs/tags/v${version}";
-    hash = "sha256-F/bd5BtHpF3778eoK0QBaSmdTOpLlz+fixCYR74BRZw=";
+    hash = "sha256-TRiv5ljdVqc4qeX+fSH+aTDf5UyNII8/twlNx3KC6oI=";
   };
-
-  patches = [
-    (fetchpatch2 {
-      # https://github.com/Lash-L/anova_wifi/pull/60
-      name = "aiohttp-3.10-compat.patch";
-      url = "https://github.com/Lash-L/anova_wifi/commit/0d7cbc756fb07241aebb99d5dd2b7d5cfd10581d.patch";
-      hash = "sha256-pfj5vKvI+aTkRV2UZT3E/Dgv0FetSUfDYhTKAq1p6uc=";
-    })
-  ];
 
   build-system = [ poetry-core ];
 
