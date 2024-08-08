@@ -956,7 +956,8 @@
     ];
     "ecovacs" = ps: with ps; [
       deebot-client
-    ]; # missing inputs: py-sucks
+      py-sucks
+    ];
     "ecowitt" = ps: with ps; [
       aioecowitt
     ];
@@ -4975,6 +4976,7 @@
     "ecobee"
     "ecoforest"
     "econet"
+    "ecovacs"
     "ecowitt"
     "edl21"
     "efergy"

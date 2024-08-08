@@ -9288,6 +9288,8 @@ self: super: with self; {
 
   py-radix-sr = callPackage ../development/python-modules/py-radix-sr { };
 
+  py-sucks = callPackage ../development/python-modules/py-sucks { };
+
   nwdiag = callPackage ../development/python-modules/nwdiag { };
 
   oasatelematics = callPackage ../development/python-modules/oasatelematics { };
@@ -11137,6 +11139,8 @@ self: super: with self; {
   pycotap = callPackage ../development/python-modules/pycotap { };
 
   pycountry = callPackage ../development/python-modules/pycountry { };
+
+  pycountry-convert = callPackage ../development/python-modules/pycountry-convert { };
 
   pycparser = callPackage ../development/python-modules/pycparser { };
 
@@ -14431,6 +14435,8 @@ self: super: with self; {
   slack-sdk = callPackage ../development/python-modules/slack-sdk { };
 
   sleekxmpp = callPackage ../development/python-modules/sleekxmpp { };
+
+  sleekxmppfs = callPackage ../development/python-modules/sleekxmppfs { };
 
   sleepyq = callPackage ../development/python-modules/sleepyq { };
 
