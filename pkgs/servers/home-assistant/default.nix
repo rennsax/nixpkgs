@@ -551,7 +551,6 @@ in python.pkgs.buildPythonApplication rec {
     aiodns
     aiohttp
     aiohttp-cors
-    aiohttp-fast-url-dispatcher
     aiohttp-fast-zlib
     aiozoneinfo
     astral
