@@ -23,6 +23,8 @@ stdenv.mkDerivation rec {
 
   buildInputs = lib.optional stdenv.hostPlatform.isDarwin CoreServices;
 
+  setupHooks = [ ./setup-hook.sh ];
+
   meta = with lib; {
     description = "Cross-platform build utility based on Lua";
     homepage = "https://xmake.io";
